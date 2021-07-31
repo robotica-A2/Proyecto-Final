@@ -8,7 +8,7 @@ Archivos, códigos y simulaciones desarrolladas en el Proyecto Final de Robótic
 
 El equipo de trabajo está compuesto por los siguientes integrantes
 
-Laura Valentina Garzón Güiza / lvgarzong@unal.edu.co
-Hernan David Moreno Rueda / hdmorenor@unal.edu.co
-Laura Camila Perdomo Garavito / lcperdomog@unal.edu.co
-Mitchell Elizabeth Rodriguez Barreto / mierodriguezba@unal.edu.co
+- Laura Valentina Garzón Güiza / lvgarzong@unal.edu.co
+- Hernan David Moreno Rueda / hdmorenor@unal.edu.co
+- Laura Camila Perdomo Garavito / lcperdomog@unal.edu.co
+- Mitchell Elizabeth Rodriguez Barreto / mierodriguezba@unal.edu.co
