@@ -1,0 +1,81 @@
+MODULE Module1
+        CONST robtarget Pos0:=[[557.262,95.3,905],[0.353553391,-0.612372436,0.612372436,0.353553391],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_20:=[[327.749,-473.857,1249.666],[0.148845925,-0.789910592,-0.10446398,0.585639329],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_30:=[[129.895392206,517.462527772,422.990471266],[0.001881575,-0.803870336,-0.002631552,0.594795779],[0,0,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_10:=[[-23.865,-111.711,1249.666],[0.001231355,-0.803814383,0.000977914,0.59487811],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_40:=[[135.145,508.487,395],[0.001884056,-0.803868748,-0.002628602,0.59479793],[0,0,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_50:=[[162.289,587.454,385],[0.001884056,-0.803868748,-0.002628602,0.59479793],[0,0,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_60:=[[-64.547,-111.711,983.332],[0.000822342,-0.554379087,0.001331591,0.832262806],[0,1,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_70:=[[-123.908,-1125.343,983.332],[0.000392562,-0.282508617,0.001514665,0.959263485],[0,1,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_80:=[[-504.424,-1125.343,555],[0.000455398,-0.324734343,0.001496011,0.945803976],[0,1,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_90:=[[-391.677844574,-1242.277711435,1671.141056565],[0.051702006,0.168382035,-0.000019411,-0.984364969],[1,2,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_100:=[[1507.500114911,-1192.546013658,1671.141056565],[0.985381053,0.004427133,0.168323826,0.025916618],[-2,2,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_120:=[[737.282,-2613.085,447.979],[0.638077524,0.002155819,-0.769969107,-0.000030075],[-2,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_130:=[[557.260013658,-242.305859524,1671.141042042],[0.678443712,-0.11589251,0.122153452,0.715095511],[0,2,-2,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_140:=[[949.005949401,-2535.272894899,433.049039714],[0.439744571,0.102523926,-0.891201443,-0.043284458],[-2,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+!***********************************************************
+    !
+    ! Módulo:  Module1
+    !
+    ! Descripción:
+    !   <Introduzca la descripción aquí>
+    !
+    ! Autor: mitel
+    !
+    ! Versión: 1.0
+    !
+    !***********************************************************
+    
+    
+    !***********************************************************
+    !
+    ! Procedimiento Main
+    !
+    !   Este es el punto de entrada de su programa
+    !
+    !***********************************************************
+    PROC main()
+        !Añada aquí su código
+        WaitDI DITV, 1;
+        Path_10;
+        Path_20;
+        WaitDI DIAV, 1;
+        Path_30;
+        WaitTime 1;
+        Path_40;
+    ENDPROC
+    PROC Path_10()
+        MoveJ Pos0,v1500,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_20,v1500,z10,tVacuum\WObj:=Workobject_1;
+        MoveL Target_50,v600,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DOVV, 1;
+        WaitTime 1;
+        SetDO DOVV, 0;
+        MoveL Target_10,v1000,fine,tVacuum\WObj:=Workobject_1;
+    ENDPROC
+    PROC Path_20()
+        MoveJ Target_60,v1500,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_70,v1500,z10,tVacuum\WObj:=Workobject_1;
+        MoveL Target_80,v600,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DOAA, 1;
+        WaitTime 1;
+        SetDO DOAA, 0;
+    ENDPROC
+    PROC Path_30()
+        MoveJ Target_90,v1500,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_100,v3000,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_140,v600,z10,tVacuum\WObj:=Workobject_1;
+        MoveL Target_120,v200,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DOSV, 1;
+        WaitTime 1;
+        SetDO DOSV, 0;
+    ENDPROC
+    PROC Path_40()
+        MoveJ Target_100,v3000,z50,tVacuum\WObj:=Workobject_1;
+        SetDO DORD, 1;        
+        MoveJ Target_130,v3000,z50,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_20,v3000,z50,tVacuum\WObj:=Workobject_1;
+        MoveJ Pos0,v3000,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DORD, 0;
+    ENDPROC
+ENDMODULE

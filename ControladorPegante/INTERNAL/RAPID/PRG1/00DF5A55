@@ -1,0 +1,83 @@
+MODULE Module1
+        CONST robtarget Target_10:=[[-587.846096908,-1156.5,905],[0,0.866025404,0,-0.5],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_30:=[[700,-48.000032362,1117.070073277],[0.048300167,-0.159891842,0.943828808,0.285112036],[-2,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_20:=[[284.276,484.084,420.823],[0.583124412,-0.006706358,-0.81234092,-0.004814039],[-1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_40:=[[-408.499975009,-1156.499987803,1117.070075287],[0.167451245,0.780448334,-0.554327201,-0.235757996],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_50:=[[-587.846096908,-1156.5,905],[0,0.866025404,0,-0.5],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_60:=[[-587.818,-1156.5,905.032],[0,-0.382683432,0,0.923879533],[-1,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_70:=[[-792.678987422,-1156.5,1120.093056966],[0,-0.382683362,0,0.923879562],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_80:=[[-792.679,-571.342,1105.093],[0,-0.382683432,0,0.923879533],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_90:=[[-1271.774,-587.233,580.067],[0,-0.382683432,0,0.923879533],[-1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_100:=[[-1271.774,-1507.798,605.067],[0,-0.382683432,0,0.923879533],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_110:=[[-792.679,-1532.013,1120.093],[0,-0.382683432,0,0.923879533],[0,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_120:=[[-210.625568644,-2067.125568644,905.0330734],[0.353553381,0.353553445,0.146446632,-0.853553368],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_130:=[[-44.107502257,-1900.607446078,1129.69420725],[0.130885423,0.868162816,0.359604763,-0.315985355],[0,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_140:=[[700,-2208.826881831,1129.69420725],[0.241844714,0.664463059,0.66446302,-0.241844728],[1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_150:=[[700,-2208.826902693,1129.694224755],[0.00000001,0.000000028,0.939692623,-0.342020138],[1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_160:=[[742.162,-3035.55,252.034],[0,0,1,0],[1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_170:=[[742.162027464,-2956.77498855,405.146051096],[0.000000019,0.000000016,1,-0.000000002],[1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_180:=[[742.162007854,-2986.89293643,385.423977652],[-0.000000068,0.000000016,1,-0.000000018],[1,-1,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+!***********************************************************
+    !
+    ! Módulo:  Module1
+    !
+    ! Descripción:
+    !   <Introduzca la descripción aquí>
+    !
+    ! Autor: mitel
+    !
+    ! Versión: 1.0
+    !
+    !***********************************************************
+    
+    
+    !***********************************************************
+    !
+    ! Procedimiento Main
+    !
+    !   Este es el punto de entrada de su programa
+    !
+    !***********************************************************
+    PROC main()
+        !Añada aquí su código
+        SetDO DOVV, 0;
+        SetDO DOVM, 0;
+        WaitDI DITV, 1;
+        Path_10;
+        Path_20;
+        Path_30;
+    ENDPROC
+    PROC Path_10()
+        MoveJ Target_10,v3000,z50,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_30,v3000,z50,tVacuum\WObj:=Workobject_1;
+        MoveL Target_20,v500,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DOVV, 1;
+        WaitTime 1;
+        SetDO DOVV, 0;
+        MoveJ Target_30,v3000,z50,tVacuum\WObj:=Workobject_1;
+    ENDPROC
+    PROC Path_20()
+        MoveJ Target_40,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_50,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_60,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveL Target_70,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveL Target_80,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveL Target_90,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveL Target_100,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveL Target_110,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveL Target_70,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_60,v2000,z10,tVacuum\WObj:=Workobject_1;
+    ENDPROC
+    PROC Path_30()
+        MoveJ Target_120,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_130,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_140,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveJ Target_150,v2000,z10,tVacuum\WObj:=Workobject_1;
+        MoveL Target_170,v500,fine,tVacuum\WObj:=Workobject_1;
+        MoveL Target_160,v500,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DOVM, 1;
+        WaitTime 1;
+        SetDO DOVM, 0;
+        MoveJ Target_150,v2000,z10,tVacuum\WObj:=Workobject_1;
+    ENDPROC
+ENDMODULE

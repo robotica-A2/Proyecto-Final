@@ -1,0 +1,51 @@
+MODULE Module1
+        CONST robtarget Pos0:=[[212.653026713,550.376340944,246.79732732],[0.001523489,0.981457168,-0.000351873,-0.191675203],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_10:=[[723.549036654,550.359957719,258.991982571],[0.00156353,0.999060335,0.000014401,0.043312849],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_20:=[[742.157990906,549.688540162,44.799865386],[0.00156353,0.999060335,0.000014401,0.043312849],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_30:=[[742.098019093,-12.540710712,46.557047594],[0.00156353,0.999060335,0.000014401,0.043312849],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_40:=[[59.432963171,3.265733321,48.972332058],[0.00156353,0.999060335,0.000014401,0.043312849],[0,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_50:=[[59.535954151,968.795012183,45.954682465],[0.00156353,0.999060335,0.000014401,0.043312849],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_60:=[[742.198497629,929.434683321,43.613012932],[0.00156353,0.999060335,0.000014401,0.043312849],[-1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_70:=[[1494.235839934,-424.644219336,862.061499137],[0.410883805,0.7058329,0.576274293,0.029704459],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+!***********************************************************
+    !
+    ! Módulo:  Module1
+    !
+    ! Descripción:
+    !   <Introduzca la descripción aquí>
+    !
+    ! Autor: mitel
+    !
+    ! Versión: 1.0
+    !
+    !***********************************************************
+    
+    
+    !***********************************************************
+    !
+    ! Procedimiento Main
+    !
+    !   Este es el punto de entrada de su programa
+    !
+    !***********************************************************
+    PROC main()
+        !Añada aquí su código
+        WaitDI DIAA, 1;
+        Path_10;
+    ENDPROC
+    PROC Path_10()
+        MoveJ Pos0,v2000,z10,Adhesivo\WObj:=Workobject_1;
+        MoveJ Target_10,v1500,z10,Adhesivo\WObj:=Workobject_1;
+        MoveL Target_20,v500,fine,Adhesivo\WObj:=Workobject_1;
+        MoveL Target_30,v500,fine,Adhesivo\WObj:=Workobject_1;
+        MoveL Target_40,v500,fine,Adhesivo\WObj:=Workobject_1;
+        MoveL Target_50,v500,fine,Adhesivo\WObj:=Workobject_1;
+        MoveL Target_60,v500,fine,Adhesivo\WObj:=Workobject_1;
+        MoveL Target_20,v500,fine,Adhesivo\WObj:=Workobject_1;
+        MoveJ Target_10,v1500,z10,Adhesivo\WObj:=Workobject_1;
+        MoveJ Target_70,v3000,z10,Adhesivo\WObj:=Workobject_1;
+        SetDO DOVA, 1;
+        WaitTime 1;
+        SetDO DOVA, 0;
+    ENDPROC
+ENDMODULE

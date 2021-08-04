@@ -1,0 +1,67 @@
+MODULE Module1
+        CONST robtarget PosInicial:=[[61.531096908,535,1256.9],[0.5,0,0.866025404,0],[1,0,-1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget PuntoMedioVent:=[[544.537164154,524.921391442,308.422917653],[0.092194571,0.619720217,0.779388872,-0.000009273],[1,-1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget TomarVentana:=[[636.85,523,127.153],[0,0.707106781,0.707106781,0],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Pos0:=[[-1226.315,-752.846096908,1256.9],[0.353553391,0.612372436,0.612372436,-0.353553391],[0,0,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget PuntoMedio1:=[[267.497993061,270.074268995,351.133526228],[0.073258901,0.703302172,0.703299637,-0.073272162],[0,-1,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Pos1_Carro:=[[-1220.780000251,-297.409948892,800.672994623],[0.500000009,0.499999986,-0.499999991,0.500000014],[0,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Pos2_Carro:=[[-1949.609936804,42.660022246,1091.332977127],[0.707032595,0.192887484,-0.680289946,-0.010242956],[-1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget VentanaCarro:=[[-2251.761031846,651.449110404,944.881043321],[0.707106845,-0.000000687,-0.707106717,0.000000199],[-2,1,0,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_10:=[[-2094.835519591,640.954336723,1091.333033624],[0.65822494,-0.058788633,-0.704658699,-0.25834075],[-1,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+    CONST robtarget Target_20:=[[-2094.835494649,640.954150658,1091.332999686],[0.684311147,0.025566154,-0.706644482,-0.178096049],[-2,0,1,0],[9E+09,9E+09,9E+09,9E+09,9E+09,9E+09]];
+!***********************************************************
+    !
+    ! Módulo:  Module1
+    !
+    ! Descripción:
+    !   <Introduzca la descripción aquí>
+    !
+    ! Autor: mitel
+    !
+    ! Versión: 1.0
+    !
+    !***********************************************************
+    
+    
+    !***********************************************************
+    !
+    ! Procedimiento Main
+    !
+    !   Este es el punto de entrada de su programa
+    !
+    !***********************************************************
+    PROC main()
+        !Add your code here
+        WaitDI DIVM, 1;
+        Path_10;
+        WaitDI DIVC, 1;
+        Path_20;  
+        Path_30;  
+        WaitTime 2;
+        Path_40;
+    ENDPROC
+    PROC Path_10()
+        MoveJ Pos0,v500,z50,tVacuum\WObj:=Workobject_1;
+        MoveJ PosInicial,v500,z20,tVacuum\WObj:=Workobject_1;
+        SetDO DORP, 1;
+        WaitTime 1;
+        SetDO DORP, 0;
+    ENDPROC
+    PROC Path_20()
+        MoveJ PosInicial,v500,z50,tVacuum\WObj:=Workobject_1;
+        MoveJ PuntoMedioVent,v500,z10,tVacuum\WObj:=Workobject_1;
+        MoveL TomarVentana,v150,fine,tVacuum\WObj:=Workobject_1;
+        SetDO DOVV, 1;
+        WaitTime 1;
+        SetDO DOVV, 0;
+    ENDPROC
+    PROC Path_30()
+        MoveJ PosInicial,v500,z200,tVacuum\WObj:=Workobject_1;
+        MoveJ Pos1_Carro,v500,z200,tVacuum\WObj:=Workobject_1;
+    ENDPROC
+    PROC Path_40()
+        MoveJ Pos2_Carro,v500,z50,tVacuum\WObj:=Workobject_1;
+        MoveL Target_20,v100,fine,tVacuum\WObj:=Workobject_1;
+    ENDPROC
+
+ENDMODULE
